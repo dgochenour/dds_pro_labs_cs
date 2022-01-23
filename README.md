@@ -14,4 +14,4 @@ to
 ``` 
 <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
 ```
-    - see https://community.rti.com/kb/how-fix-error-cs0234-type-or-namespace-name-commandhandler-does-not-exist-connext-dds-c-examples for more detail regarding why this is needed.
+  - see https://community.rti.com/kb/how-fix-error-cs0234-type-or-namespace-name-commandhandler-does-not-exist-connext-dds-c-examples for more detail regarding why this is needed.
