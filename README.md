@@ -10,7 +10,7 @@ C# version of Connext Professional hands-on learning material
 ```
 <PackageReference Include="System.CommandLine" Version="2.0.0-*" /> 
 ```
-    was changed to:
+was changed to:
 ``` 
 <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
 ```
