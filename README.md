@@ -22,3 +22,14 @@ C# version of Connext Professional hands-on learning material
 - Let's make the following changes to the publisher. In `examplePublisher.cs` make the following changes in the writing loop:
   - Set `sample.id` to a constant number
   - Give dynamic values to `sample.point.[x|y|z]`
+
+## Lab 02. Deadline QoS
+
+- In `USER_QOS_PROFILES.xml`, add a `deadline` section to the DataReader Qos. 
+  - Observe that no data flows; this is because we also need to have the DataWriter offer a deadline. 
+    - fix the issue in XML
+- Use Admin Console to observe that a QoS mismatch exists
+- Use handlers in `exampleSubscriber.cs` to programmatically learn about 
+  a) any QoS mismatch
+  b) any deadline missed events
+    
