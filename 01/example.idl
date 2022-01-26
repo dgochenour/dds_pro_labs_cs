@@ -1,0 +1,11 @@
+@nested
+struct Point {
+    double x;
+    double y;
+    double z;
+};
+
+struct MyType {
+    @key long id;
+    Point point;
+};
