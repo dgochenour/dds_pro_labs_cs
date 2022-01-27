@@ -33,3 +33,15 @@ was changed to:
   - any QoS mismatch
   - any deadline missed events
   - *NOTE* The waitset must be configured before the handers-- this is due to known issue CORE-11125
+
+## Lab 03. Add constants to IDL, use them in the source
+
+- We can declare const strings in the IDL so that string literals do not have to be manually entered in source. Let's do that for:
+  - The Topic name
+  - The QoS library and profile
+- The type support code now needs to be regenerated, but be careful not to overwrite the example files
+```
+%NDDSHOME%\bin\rtiddsgen.bat -language c# -update typefiles -ppDisable example.idl
+
+```
+- Update `examplePublisher.cs` and `exampleSubscriber.cs` to use these constants.
