@@ -1,0 +1,16 @@
+// LAB #03 - add constants
+const string position_topic_name = "PositionTopic";
+const string qos_library = "MyLibrary";
+const string qos_profile = "MyProfile";
+
+@nested
+struct Point {
+    double x;
+    double y;
+    double z;
+};
+
+struct MyType {
+    @key long id;
+    Point point;
+};
