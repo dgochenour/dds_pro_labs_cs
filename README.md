@@ -26,10 +26,10 @@ C# version of Connext Professional hands-on learning material
 ## Lab 02. Deadline QoS
 
 - In `USER_QOS_PROFILES.xml`, add a `deadline` section to the DataReader Qos. 
-  - Observe that no data flows; this is because we also need to have the DataWriter offer a deadline. 
+  - Observe that no data flows; this is because we also need to have the DataWriter offer a deadline 
     - fix the issue in XML
 - Use Admin Console to observe that a QoS mismatch exists
 - Use handlers in `exampleSubscriber.cs` to programmatically learn about 
-  a) any QoS mismatch
-  b) any deadline missed events
-    
+  - any QoS mismatch
+  - any deadline missed events
+  - *NOTE* The waitset must be configured before the handers-- this is due to known issue CORE-11125

@@ -74,22 +74,7 @@ public static class MyTypeSubscriber
         // DataReader QoS is configured in USER_QOS_PROFILES.xml
         DataReader<MyType> reader = subscriber.CreateDataReader(topic);
 
-        //LAB #02 - add handlers to the DataReader to learn when there is a QoS
-        //mismatch, and when a deadline is missed
-        // reader.RequestedIncompatibleQos += (_, status) =>
-        // {
-        //     var policy = status.LastPolicy.Name;
-        //     Console.WriteLine($"Incompatible QoS: {policy}");
-        // };
-        
-        
-        reader.RequestedDeadlineMissed += (_, status) =>
-        {
-            var offendingInstance = status.LastInstanceHandle;
-            MyType keyHolder = new MyType();
-            reader.GetKeyValue(keyHolder, offendingInstance);
-            Console.WriteLine($"WARNING: ID = {keyHolder.id} Missed a deadline!");
-        };
+
 
         // Obtain the DataReader's Status Condition
         StatusCondition statusCondition = reader.StatusCondition;
@@ -106,6 +91,23 @@ public static class MyTypeSubscriber
         // Create a WaitSet and attach the StatusCondition
         var waitset = new WaitSet();
         waitset.AttachCondition(statusCondition);
+
+        // LAB #02 - add handlers to the DataReader to report when there is a QoS
+        // mismatch
+        reader.RequestedIncompatibleQos += (_, status) =>
+        {
+            var policy = status.LastPolicy.Name;
+            Console.WriteLine($"Incompatible QoS: {policy}");
+        };
+        // LAB #02 - add handlers to the DataReader to report that a deadline is missed
+        reader.RequestedDeadlineMissed += (_, status) =>
+        {
+            var offendingInstance = status.LastInstanceHandle;
+            MyType keyHolder = new MyType();
+            reader.GetKeyValue(keyHolder, offendingInstance);
+            Console.WriteLine($"WARNING: ID = {keyHolder.id} Missed a deadline!");
+        };
+                
         while (samplesRead < sampleCount)
         {
             // Dispatch will call the handlers associated with the WaitSet
