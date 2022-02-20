@@ -1,6 +1,6 @@
 Welcome to your first Connext DDS example!
 
-This C# example was generated for the platform net5,
+This C# example was generated for the platform net6,
 using the data type MyType from example.idl.
 
 This example builds one application (exampleProgram.cs)
@@ -83,7 +83,7 @@ installation directory for RTI Connext DDS.
 
 You can also configure this package source globally:
 
-    $ dotnet nuget add source C:\Program Files\rti_connext_dds-6.1.0\bin\../lib/dotnet -n RTI
+    $ dotnet nuget add source /Applications/rti_connext_dds-6.1.0/lib/dotnet -n RTI
 
 I get a "No source for License information" error when I run the application
 ----------------------------------------------------------------------------
