@@ -1,11 +1,17 @@
 # dds_pro_labs_cs
 C# version of Connext Professional hands-on learning material
 
-## Lab 00. "As generated" code
+## Lab 00: "As generated" code
 
 - This lab contains unmodified type-support code and an example application that was generated with the following command:
+
+### Linux and MacOS
 ```
-%NDDSHOME%\bin\rtiddsgen.bat -language c# -example net5 -ppDisable example.idl
+$NDDSHOME/bin/rtiddsgen -language c# -example net6 ./example.idl
+```
+### Windows
+```
+%NDDSHOME%\bin\rtiddsgen.bat -language c# -example net6 -ppDisable example.idl
 ```
 - Note that in the *.csproj file, the line: 
 ```
